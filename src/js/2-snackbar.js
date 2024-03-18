@@ -8,16 +8,15 @@ form.addEventListener("submit", onSubmit);
 
 function onSubmit(event) {
     event.preventDefault();
-    const delay = event.currentTarget.elements.delay.value;
+    const delay = delayInput.value;
     const state = event.currentTarget.elements.state.value;
 
     const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
-            console.log(delay, state);
             if(state === "fulfilled") {
-                resolve()
+                resolve(delay)
             }else{
-                reject()
+                reject(delay)
             }
         }, delay)
     })
